@@ -1,8 +1,6 @@
-import string
-import random
-from typing import OrderedDict
+# script to determine frequency of letters in words ending in L
 from english_words import english_words_lower_alpha_set
-import matplotlib.pyplot as plt
+
 
 def five_letter_words():
 	"""Return set of 5 letter words"""
