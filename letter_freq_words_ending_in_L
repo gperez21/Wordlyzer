@@ -1,0 +1,37 @@
+import string
+import random
+from typing import OrderedDict
+from english_words import english_words_lower_alpha_set
+import matplotlib.pyplot as plt
+
+def five_letter_words():
+	"""Return set of 5 letter words"""
+	flw = []
+	for w in english_words_lower_alpha_set:
+		if len(w) == 5:
+			flw.append(w)
+	return flw
+
+words = five_letter_words()
+words_ending_in_l = []
+for w in words:
+	if w[4] == 'l':
+		words_ending_in_l.append(w)
+word_still_valid = []
+for w in words_ending_in_l:
+	add = True
+	for l in ['e', 'a', 's', 't']:
+		if l in w:
+			add = False
+	if add == True:
+		word_still_valid.append(w)
+
+letter_freq = {}
+for w in word_still_valid:
+	try:
+		letter_freq[w[3]] += 1
+	except KeyError:
+		letter_freq[w[3]] = 1
+
+print(letter_freq)
+print(word_still_valid)
